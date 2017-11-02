@@ -1,7 +1,7 @@
 {
-  "name": "trackist",
+  "name": "clouds-against-humanity",
   "version": "1.0.0",
-  "description": "Time tracker",
+  "description": "An experimental CAH-like game",
   "engines": {
     "npm": ">=3"
   },
