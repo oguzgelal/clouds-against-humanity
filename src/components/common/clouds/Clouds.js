@@ -18,7 +18,7 @@ const Clouds = (props) => {
     let speed = rand(speedMin, speedMax);
     let size = rand(sizeMin, sizeMax) / 100;
     let top = rand(0, 100);
-    let delay = rand(0, 30);
+    let delay = rand(-50, 50);
     let styles = {
       'WebkitAnimation': `clouds--animate ${speed}s linear infinite`,
       'MozAnimation': `clouds--animate ${speed}s linear infinite`,
