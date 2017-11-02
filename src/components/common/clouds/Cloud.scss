@@ -1,0 +1,32 @@
+.cloud--body {
+	background: rgb(153,153,153);
+	border-radius: 100px;
+	height: 120px;
+	position: relative;
+  width: 350px;
+  opacity: .3;
+}
+
+.cloud--body:after,
+.cloud--body:before {
+    background: rgb(153,153,153);
+	  content: '';
+	  position: absolute;
+	  z-indeX: -1;
+}
+
+.cloud--body:after {
+	border-radius: 100px;
+	height: 100px;
+	left: 50px;
+	top: -50px;
+	width: 100px;
+}
+
+.cloud--body:before {
+	border-radius: 200px;
+	width: 180px;
+	height: 180px;
+	right: 50px;
+	top: -90px;
+}
