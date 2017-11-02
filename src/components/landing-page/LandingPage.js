@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         <Clouds />
-        <div className="landing--background-gradient"></div>
+        <div className="landing--background-gradient" />
 
         <div className="landing--center-frame">
           <div className={titleClasses.join(' ')}>
@@ -41,7 +41,7 @@ class LandingPage extends React.Component {
           </div>
           <div className={taglineClasses.join(' ')}>
             An <span className="landing--highlight">uplifting</span> and <span className="landing--highlight">tasteful</span> game where humor can get <span className="landing--highlight">really dark</span>.
-        </div>
+          </div>
         </div>
 
         <div className="landing--login">

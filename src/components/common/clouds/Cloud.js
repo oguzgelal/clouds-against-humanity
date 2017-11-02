@@ -3,7 +3,7 @@ import './Cloud.scss';
 
 const Cloud = (props) => {
   return (
-    <div className="cloud--body"></div>
+    <div className="cloud--body" />
   );
 };
 

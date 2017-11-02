@@ -4,7 +4,7 @@ import './Clouds.scss';
 
 const rand = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
 const Clouds = (props) => {
   let count = props.count || 30;
@@ -28,12 +28,12 @@ const Clouds = (props) => {
       'MozTransform': `scale(${size})`,
       'transform': `scale(${size})`,
       'top': `${top}vh`
-    }
+    };
     clouds.push(
       <div className="clouds--wrapper" key={'cloud' + i} style={styles}>
         <Cloud />
       </div>
-    )
+    );
   }
 
   return (
@@ -44,6 +44,11 @@ const Clouds = (props) => {
 };
 
 Clouds.propTypes = {
+  count: PropTypes.number,
+  speedMax: PropTypes.number,
+  speedMin: PropTypes.number,
+  sizeMax: PropTypes.number,
+  sizeMin: PropTypes.number
 };
 
 export default Clouds;
