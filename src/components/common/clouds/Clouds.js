@@ -12,12 +12,11 @@ const Clouds = (props) => {
   let count = props.count || 30;
   let speedMax = props.speedMax || 50, speedMin = props.speedMin || 20;
   let sizeMax = props.sizeMax || 80, sizeMin = props.sizeMin || 10;
-
   let clouds = [];
   for (let i = 0; i < count; i++) {
     let speed = rand(speedMin, speedMax);
     let size = rand(sizeMin, sizeMax) / 100;
-    let top = rand(0, 100);
+    let top = rand(0, 80);
     let delay = rand(-50, 50);
     let styles = {
       'WebkitAnimation': `clouds--animate ${speed}s linear infinite`,
