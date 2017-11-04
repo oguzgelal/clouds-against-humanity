@@ -5,8 +5,14 @@ import { Switch, NavLink, Route } from 'react-router-dom';
 import LandingContainer from '../containers/landing-container/LandingContainer';
 import GameContainer from '../containers/game-container/GameContainer';
 import NotFoundPage from '../components/not-found-page/NotFoundPage';
+import { initFacebookApi } from '../utils/misc';
 
 class App extends React.Component {
+
+  componentWillMount() {
+    initFacebookApi();
+  }
+
   render() {
     return (
       <div>
