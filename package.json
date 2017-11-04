@@ -105,8 +105,7 @@
       "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js"
     },
     "setupFiles": [
-      "raf/polyfill",
-      "./tools/enzymeTestAdapterSetup.js"
+      "raf/polyfill"
     ]
   },
   "babel": {
