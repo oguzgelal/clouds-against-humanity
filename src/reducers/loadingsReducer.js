@@ -15,6 +15,13 @@ const loadingsReducer = (state = initialState.loadings, action) => {
         ...state,
         fbLogin: false
       }
+      
+     // TODO: fix the indentation
+     case types.FB_LOGIN_FAILED:
+      return {
+        ...state,
+        fbLogin: false
+      }
 
     default:
       return state;
