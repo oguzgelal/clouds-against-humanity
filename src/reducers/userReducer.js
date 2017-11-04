@@ -5,7 +5,10 @@ const userReducer = (state = initialState.user, action) => {
   switch (action.type) {
 
     case types.FB_LOGIN_COMPLETED:
-      return { user: Object.assign({}, action.data) }
+      return {
+        ...state,
+        user: Object.assign({}, action.data)
+      }
 
     default:
       return state;

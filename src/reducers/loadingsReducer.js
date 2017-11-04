@@ -5,10 +5,16 @@ const loadingsReducer = (state = initialState.loadings, action) => {
   switch (action.type) {
 
     case types.FB_LOGIN_STARTED:
-      return { fbLogin: true }
+      return {
+        ...state,
+        fbLogin: true
+      }
 
     case types.FB_LOGIN_COMPLETED:
-      return { fbLogin: false }
+      return {
+        ...state,
+        fbLogin: false
+      }
 
     default:
       return state;
