@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as loginActions from '../../actions/loginActions';
 import LandingPage from '../../components/landing-page/LandingPage';
 
 class LandingContainer extends React.Component {
@@ -14,23 +15,28 @@ class LandingContainer extends React.Component {
 
   render() {
     return (
-      <LandingPage />
+      <LandingPage
+        fbLoginLoading={this.props.loadings.fbLogin}
+        fbLoginClicked={this.props.loginActions.fbLoginClicked}
+      />
     );
   }
 }
 
 LandingContainer.propTypes = {
+  loadings: PropTypes.object.isRequired,
+  loginActions: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = (state, ownProps) => {
   return {
-    //authors: state.authors
+    loadings: state.loadings
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
-    //actions: bindActionCreators(..., dispatch)
+    loginActions: bindActionCreators(loginActions, dispatch)
   };
 }
 
