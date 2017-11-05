@@ -8,7 +8,8 @@ import 'rxjs';
 export const fbLoginStartEpic = (action$, store) => {
   return action$
     .ofType(types.FB_LOGIN_STARTED)
-    .mergeMap(fbLoginObservable)
-    .map(fbLoginCompleted)
-    .catch(err => Observable.of(fbLoginFailed(err)))
+    .mergeMap(action => fbLoginObservable()
+      .map(fbLoginCompleted)
+      .catch(err => Observable.of(fbLoginFailed(err)))
+    )
 }
