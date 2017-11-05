@@ -32,7 +32,7 @@ class Toast {
       opts.class = 'izi--success';
       window.iziToast.success(opts);
     }
-    catch (e) { alert(opts.msg); }
+    catch (e) { alert(opts.message); }
   }
 
   warning(opts) {
@@ -40,7 +40,7 @@ class Toast {
       opts.class = 'izi--warning';
       window.iziToast.warning(opts);
     }
-    catch (e) { alert(opts.msg); }
+    catch (e) { alert(opts.message); }
   }
 
   error(opts) {
@@ -48,7 +48,7 @@ class Toast {
       opts.class = 'izi--error';
       window.iziToast.error(opts);
     }
-    catch (e) { alert(opts.msg); }
+    catch (e) { alert(opts.message); }
   }
 
   show(opts) {
@@ -56,7 +56,7 @@ class Toast {
       opts.class = 'izi--default';
       window.iziToast.show(opts);
     }
-    catch (e) { alert(opts.msg); }
+    catch (e) { alert(opts.message); }
   }
 }
 

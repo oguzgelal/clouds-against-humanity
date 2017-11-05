@@ -6,13 +6,13 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore, { history } from './store/configureStore';
 import initialState from './constants/initialState'
 import Root from './components/Root';
-
-/*eslint-disable */
-import 'script-loader!../node_modules/izitoast/dist/js/iziToast.min.js';
-/*eslint-enable */
+import { initExternalLibs, initFacebookApi } from './utils/misc';
 
 import './styles/index.scss';
 require('./favicon.ico');
+
+initExternalLibs();
+initFacebookApi();
 
 const store = configureStore(initialState);
 
