@@ -3,7 +3,10 @@ import { fbLoginCompleted, fbLoginFailed } from '../actions/loginActions';
 import { ofType } from 'redux-observable';
 import { fbLoginObservable } from '../utils/rxify';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 export const fbLoginStartEpic = (action$, store) => {
   return action$
