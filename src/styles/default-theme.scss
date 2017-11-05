@@ -1,15 +1,17 @@
 @import url('https://rsms.me/inter/inter-ui.css');
 @import '../../node_modules/bulma/sass/utilities/initial-variables';
+@import '../../node_modules/bulma/sass/utilities/functions';
+@import '../../node_modules/bulma/sass/utilities/derived-variables';
 
-//$blue: #72d0eb;
-//$pink: #ffb3b3;
-//$pink-invert: #fff;
-//$primary: $pink;
-//$primary-invert: $pink-invert;
-//$danger: $orange;
 
 $family-serif: 'Inter UI', sans-serif;
 $family-primary: $family-serif;
+
+$primary: $cyan;
+$primary-invert: $cyan-invert;
+
+$warning: #f39c12;
+$warning-invert: findColorInvert($warning);
 
 $body-background-color: $white-bis;
 $body-line-height: 1;

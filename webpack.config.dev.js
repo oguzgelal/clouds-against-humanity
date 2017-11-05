@@ -99,6 +99,7 @@ export default {
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'node_modules/bulma'),
+          path.resolve(__dirname, 'node_modules/izitoast'),
         ],
         use: [
           'style-loader',

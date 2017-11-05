@@ -1,4 +1,5 @@
 import * as types from '../constants/typesLogin';
+import Toast from '../components/common/toast/Toast';
 
 export const fbLoginClicked = () => {
   return {
@@ -14,6 +15,7 @@ export const fbLoginCompleted = data => {
 }
 
 export const fbLoginFailed = err => {
+  new Toast('Uh, that didn\'t work', 'error')
   return {
     type: types.FB_LOGIN_FAILED,
     err
