@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class GamePage extends React.Component {
+class LobbyPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -16,7 +16,8 @@ class GamePage extends React.Component {
   }
 }
 
-GamePage.propTypes = {
+LobbyPage.propTypes = {
+  user: PropTypes.object.isRequired
 };
 
-export default GamePage;
+export default LobbyPage;

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import './header.scss'
 
 class Header extends React.Component {
   constructor(props, context) {
@@ -17,26 +20,36 @@ class Header extends React.Component {
   }
 
   render() {
+
+    let navbarClasses = classNames(
+      'navbar-menu',
+      'navbar-end',
+      {
+        'is-active': !!this.state.navbarActive
+      }
+    );
+
     return (
       <nav className="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item">Clouds Against Humanity</a>
-            <button className="button navbar-burger" onClick={this.toggleMenu}>
+            <button className="button navbar-burger header--navbar-burger" onClick={this.toggleMenu}>
               <span />
               <span />
               <span />
             </button>
           </div>
-          <div className={"navbar-menu " + (this.state.navbarActive ? 'is-active' : '')}>
+          <div className={navbarClasses}>
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Docs</a>
-              <div className="navbar-dropdown is-boxed">
-                <a className="navbar-item">Overview</a>
-                <a className="navbar-item">Elements</a>
-                <a className="navbar-item">Components</a>
+              <a className="navbar-item is-hidden-mobile">
+                <img className="header--avatar" src={`https://graph.facebook.com/${this.props.user.id}/picture?type=large`} />
+              </a>
+              <div className="navbar-dropdown is-boxed header--navbar">
+                <a className="navbar-item">About</a>
+                <a className="navbar-item">Settings</a>
                 <hr className="navbar-divider" />
-                <div className="navbar-item">Version 0.6.0</div>
+                <a className="navbar-item">Logout</a>
               </div>
             </div>
           </div>
@@ -47,6 +60,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+  user: PropTypes.object.isRequired
 };
 
 export default Header;

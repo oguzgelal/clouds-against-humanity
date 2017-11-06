@@ -6,7 +6,7 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore from './config/store';
 import history from './config/history';
 import initialState from './config/initial-state'
-import AppRoot from './components/app-root';
+import App from './components/app';
 import { initExternalLibs, initFacebookApi } from './utils/misc';
 
 import './styles/index.scss';
@@ -19,17 +19,17 @@ const store = configureStore(initialState);
 
 render(
   <AppContainer>
-    <AppRoot store={store} history={history} />
+    <App store={store} history={history} />
   </AppContainer>,
   document.getElementById('app')
 );
 
 if (module.hot) {
-  module.hot.accept('./components/app-root', () => {
-    const NewRoot = require('./components/app-root').default;
+  module.hot.accept('./components/app', () => {
+    const NewApp = require('./components/app').default;
     render(
       <AppContainer>
-        <NewRoot store={store} history={history} />
+        <NewApp store={store} history={history} />
       </AppContainer>,
       document.getElementById('app')
     );

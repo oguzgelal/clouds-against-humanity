@@ -1,28 +1,22 @@
-/* eslint-disable import/no-named-as-default */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, NavLink, Route } from 'react-router-dom';
-import LandingContainer from '../containers/landing-container/landing-container';
-import GameContainer from '../containers/game-container/game-container';
-import NotFoundPage from '../components/not-found-page/not-found-page';
+import { ConnectedRouter } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import Routes from './routes';
 
-class App extends React.Component {
-
+export default class App extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={LandingContainer} />
-          <Route exact path="/game" component={GameContainer} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </div>
+      <Provider store={this.props.store}>
+        <ConnectedRouter history={this.props.history}>
+          <Routes />
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
 
 App.propTypes = {
-  children: PropTypes.element
+  store: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
-
-export default App;

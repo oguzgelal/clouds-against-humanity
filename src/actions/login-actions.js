@@ -1,4 +1,5 @@
 import * as types from '../config/types';
+import history from '../config/history';
 import Toast from '../components/common/toast/toast';
 
 export const fbLoginClicked = () => {
@@ -19,5 +20,12 @@ export const fbLoginFailed = err => {
   return {
     type: types.FB_LOGIN_FAILED,
     err
+  }
+}
+
+export const fbLoginRedirect = () => {
+  history.push('/lobby')
+  return {
+    type: types.FB_LOGIN_REDIRECTED
   }
 }
