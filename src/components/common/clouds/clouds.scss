@@ -1,0 +1,17 @@
+.clouds--container {
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.clouds--wrapper {
+  position: absolute;
+  left: -350px;
+}
+
+@keyframes clouds--animate {
+  0% { left: -350px; }
+  100% { left: 100%; }
+}
