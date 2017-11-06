@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as loginActions from '../../actions/loginActions';
-import LandingPage from '../../components/landing-page/LandingPage';
+import * as loginActions from '../../actions/login-actions';
+import LandingPage from '../../components/landing-page/landing-page';
 
 class LandingContainer extends React.Component {
   constructor(props, context) {

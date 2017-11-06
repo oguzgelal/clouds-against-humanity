@@ -1,5 +1,5 @@
-import * as types from '../constants/typesLogin';
-import initialState from '../constants/initialState';
+import * as types from '../config/types';
+import initialState from '../config/initial-state';
 
 const userReducer = (state = initialState.user, action) => {
   switch (action.type) {

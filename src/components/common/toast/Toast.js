@@ -1,4 +1,4 @@
-import './Toast.scss';
+import './toast.scss';
 
 class Toast {
 

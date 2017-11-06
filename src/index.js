@@ -3,9 +3,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import configureStore, { history } from './store/configureStore';
-import initialState from './constants/initialState'
-import Root from './components/Root';
+import configureStore from './config/store';
+import history from './config/history';
+import initialState from './config/initial-state'
+import AppRoot from './components/app-root';
 import { initExternalLibs, initFacebookApi } from './utils/misc';
 
 import './styles/index.scss';
@@ -18,14 +19,14 @@ const store = configureStore(initialState);
 
 render(
   <AppContainer>
-    <Root store={store} history={history} />
+    <AppRoot store={store} history={history} />
   </AppContainer>,
   document.getElementById('app')
 );
 
 if (module.hot) {
-  module.hot.accept('./components/Root', () => {
-    const NewRoot = require('./components/Root').default;
+  module.hot.accept('./components/app-root', () => {
+    const NewRoot = require('./components/app-root').default;
     render(
       <AppContainer>
         <NewRoot store={store} history={history} />

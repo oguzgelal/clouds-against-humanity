@@ -1,5 +1,5 @@
-import * as types from '../constants/typesLogin';
-import Toast from '../components/common/toast/Toast';
+import * as types from '../config/types';
+import Toast from '../components/common/toast/toast';
 
 export const fbLoginClicked = () => {
   return {

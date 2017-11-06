@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Clouds from '../common/clouds/Clouds';
+import Clouds from '../common/clouds/clouds';
 import * as Icon from 'react-feather';
 import classNames from 'classnames';
 
-import './LandingPage.scss';
+import './landing-page.scss';
 
 class LandingPage extends React.Component {
   constructor(props, context) {

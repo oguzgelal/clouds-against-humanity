@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Cloud from './Cloud';
-import './Clouds.scss';
+import Cloud from './cloud';
+import './clouds.scss';
 
 class Clouds extends React.Component {
   constructor(props, context) {

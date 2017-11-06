@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, NavLink, Route } from 'react-router-dom';
-import LandingContainer from '../containers/landing-container/LandingContainer';
-import GameContainer from '../containers/game-container/GameContainer';
-import NotFoundPage from '../components/not-found-page/NotFoundPage';
+import LandingContainer from '../containers/landing-container/landing-container';
+import GameContainer from '../containers/game-container/game-container';
+import NotFoundPage from '../components/not-found-page/not-found-page';
 
 class App extends React.Component {
 

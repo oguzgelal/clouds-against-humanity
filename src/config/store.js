@@ -1,12 +1,11 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 import { rootReducer } from '../reducers';
 import { rootEpic } from '../epics';
 import { createEpicMiddleware } from 'redux-observable';
+import history from './history';
 
-export const history = createHistory();
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const configureStoreProd = initialState => {

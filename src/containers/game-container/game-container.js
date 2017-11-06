@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import GamePage from '../../components/game-page/GamePage';
-import Header from '../../components/common/header/Header';
+import GamePage from '../../components/game-page/game-page';
+import Header from '../../components/common/header/header';
 
-class LandingContainer extends React.Component {
+class GameContainer extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -23,7 +23,7 @@ class LandingContainer extends React.Component {
   }
 }
 
-LandingContainer.propTypes = {
+GameContainer.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
@@ -41,4 +41,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LandingContainer);
+)(GameContainer);

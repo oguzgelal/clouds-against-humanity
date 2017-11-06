@@ -7,6 +7,7 @@ export const fbLoginObservable = () => {
     window.FB.login(res => {
       if (!res.authResponse) { observer.error('Not authorised'); }
       observer.next(res)
+      observer.complete();
     })
   })
 }

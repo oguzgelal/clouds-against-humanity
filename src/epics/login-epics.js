@@ -1,5 +1,5 @@
-import * as types from '../constants/typesLogin';
-import { fbLoginCompleted, fbLoginFailed } from '../actions/loginActions';
+import * as types from '../config/types';
+import { fbLoginCompleted, fbLoginFailed } from '../actions/login-actions';
 import { ofType } from 'redux-observable';
 import { fbLoginObservable } from '../utils/rxify';
 import { Observable } from 'rxjs/Observable';

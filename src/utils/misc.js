@@ -1,9 +1,9 @@
-import misc from '../constants/misc'
+import env from '../config/env'
 
 export const initFacebookApi = () => {
   window.fbAsyncInit = function () {
     window.FB.init({
-      appId: misc.FB_APP_ID,
+      appId: env.FB_APP_ID,
       autoLogAppEvents: true,
       xfbml: true,
       version: 'v2.10'
@@ -21,14 +21,14 @@ export const initFacebookApi = () => {
 }
 
 export const initExternalLibs = () => {
-  misc.CDN_CSS.map(css => {
+  env.CDN_CSS.map(css => {
     let element = document.createElement('link');
     element.href = css;
     element.rel = 'stylesheet';
     element.type = 'text/css';
     document.getElementsByTagName('head')[0].appendChild(element);
   })
-  misc.CDN_JS.map(link => {
+  env.CDN_JS.map(link => {
     let element = document.createElement('script');
     element.src = link;
     document.getElementsByTagName('body')[0].appendChild(element);
