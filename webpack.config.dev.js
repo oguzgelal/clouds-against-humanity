@@ -34,7 +34,7 @@ export default {
         collapseWhitespace: true
       },
       inject: true
-    })
+    }),
   ],
   module: {
     rules: [
