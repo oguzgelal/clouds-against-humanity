@@ -4,6 +4,7 @@
 import webpack from 'webpack';
 import config from '../webpack.config.prod';
 import fs from 'fs';
+import path from 'path';
 import { chalkError, chalkSuccess, chalkWarning, chalkProcessing } from './chalkConfig';
 
 process.env.NODE_ENV = 'production'; // this assures React is built in prod mode and that the Babel dev config doesn't apply.
@@ -30,7 +31,9 @@ webpack(config).run((error, stats) => {
   console.log(`Webpack stats: ${stats}`);
 
   // Create the redirects file
-  fs.writeFile('/dist/_redirects', '/*    /index.html   200', err => {
+  let fname = path.resolve(__dirname, '/../dist') + '/_redirects';
+  let fcontents = `/*    /index.html   200`;
+  fs.writeFile(fname, fcontents, err => {
     if (err) {
       console.log(chalkError(err));
       return 1;
