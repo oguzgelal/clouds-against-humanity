@@ -25,6 +25,11 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    // Copy _redirecs file to dist
+    new CopyWebpackPlugin([
+      { from: 'tools/_redirects', to: '' }
+    ]),
+
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
@@ -58,11 +63,6 @@ export default {
 
     // Minify JS
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-
-    // Copy _redirecs file to dist
-    new CopyWebpackPlugin([
-      { from: 'tools/_redirects', to: '' }
-    ]),
   ],
   module: {
     rules: [
