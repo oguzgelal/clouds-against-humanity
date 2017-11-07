@@ -19,14 +19,15 @@
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run clean-dist && npm run lint && npm run test",
     "build": "npm run build:CI && npm run open:dist",
-    "build:CI": "babel-node tools/build.js",
+    "build:CI": "babel-node tools/build.js && npm run create-redirecs",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "create-redirecs": "echo \"/*    /index.html   200\" > dist/_redirects"
   },
   "author": "Oguz Gelal",
   "license": "MIT",
