@@ -6,11 +6,11 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore from './config/store';
 import history from './config/history';
 import initialState from './config/initial-state'
-import App from './components/app';
+import App from './app';
 import { initExternalLibs, initFacebookApi } from './utils/misc';
 
 import './styles/index.scss';
-require('./favicon.ico');
+require('./assets/favicon.ico');
 
 initExternalLibs();
 initFacebookApi();
@@ -25,8 +25,8 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept('./components/app', () => {
-    const NewApp = require('./components/app').default;
+  module.hot.accept('./app', () => {
+    const NewApp = require('./app').default;
     render(
       <AppContainer>
         <NewApp store={store} history={history} />

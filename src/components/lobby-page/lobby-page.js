@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TestImage from '../../assets/test.png';
+
 class LobbyPage extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -11,7 +13,9 @@ class LobbyPage extends React.Component {
 
   render() {
     return (
-      <div />
+      <div>
+        <img src={TestImage} />
+      </div>
     );
   }
 }
