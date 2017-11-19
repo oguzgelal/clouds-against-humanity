@@ -1,4 +1,5 @@
 export default {
   user: {},
-  loadings: {}
+  loadings: {},
+  socket: {}
 };

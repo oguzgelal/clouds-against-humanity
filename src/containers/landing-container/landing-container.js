@@ -13,6 +13,9 @@ class LandingContainer extends React.Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
     return (
       <LandingPage

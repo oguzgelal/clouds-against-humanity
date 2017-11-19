@@ -14,6 +14,7 @@ import NotFoundPage from './components/not-found-page/not-found-page';
 class Routes extends React.Component {
 
   render() {
+
     return (
       <div>
         <Switch>

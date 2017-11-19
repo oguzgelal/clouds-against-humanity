@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './header.scss'
+import './header.scss';
 
 class Header extends React.Component {
   constructor(props, context) {
