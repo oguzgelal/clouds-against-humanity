@@ -1,7 +1,7 @@
 import * as types from '../config/types';
 import initialState from '../config/initial-state';
 
-const socketReducer = (state = initialState.loadings, action) => {
+const socketReducer = (state = initialState.socket, action) => {
   switch (action.type) {
 
     case types.SOCKET_CONNECTING:
