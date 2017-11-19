@@ -22,7 +22,7 @@ class LobbyContainer extends React.Component {
   // open connection to the lobby server
   componentDidMount() {
     this.ws = new SocketObservable(env.LOBBY_SOURCE, this.props.socketActions);
-    this.ws.subscribe(x => { console.log(x); });
+    this.ws.observable().subscribe(x => { console.log(x); });
   }
 
   // close connection to the lobby server
@@ -36,7 +36,7 @@ class LobbyContainer extends React.Component {
   render() {
     return (
       <div>
-        <ConnectionDialogue socket={this.props.socket} />
+        <ConnectionDialogue socket={this.props.socket} ws={this.ws} />
         <Header user={this.props.user} />
         <LobbyPage user={this.props.user} />
       </div>

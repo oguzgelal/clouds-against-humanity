@@ -10,7 +10,6 @@ class SocketObservable {
       self.actions = actions;
     }
     catch (e) { throw e; }
-    return self.observable();
   }
 
   // unparse - return type
