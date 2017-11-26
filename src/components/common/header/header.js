@@ -29,6 +29,7 @@ class Header extends React.Component {
       }
     );
 
+
     return (
       <nav className="navbar is-dark" role="navigation" aria-label="dropdown navigation">
         <div className="container">
