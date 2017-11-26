@@ -23,6 +23,7 @@ class LobbyContainer extends React.Component {
   componentDidMount() {
     this.ws = new SocketObservable(env.LOBBY_SOURCE, this.props.socketActions);
     this.ws.observable().subscribe(x => { console.log(x); });
+    window.ws = this.ws;
   }
 
   // close connection to the lobby server
@@ -46,7 +47,8 @@ class LobbyContainer extends React.Component {
 
 LobbyContainer.propTypes = {
   user: PropTypes.object.isRequired,
-  socket: PropTypes.object.isRequired
+  socket: PropTypes.object.isRequired,
+  socketActions: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

@@ -13,7 +13,7 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => {
 
 PrivateRoute.propTypes = {
   user: PropTypes.object.isRequired,
-  component: PropTypes.any.isRequired,
+  component: PropTypes.func.isRequired,
   location: PropTypes.object
 };
 

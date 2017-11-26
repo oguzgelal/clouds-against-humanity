@@ -1,3 +1,5 @@
+import { persistStore, persistCombineReducers } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
 import { createStore, compose, applyMiddleware } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import { routerMiddleware } from 'react-router-redux';
@@ -14,10 +16,11 @@ const configureStoreProd = initialState => {
     reactRouterMiddleware,
     epicMiddleware
   ];
-  return createStore(rootReducer, initialState, compose(
+  const store = createStore(rootReducer, initialState, compose(
     applyMiddleware(...middlewares)
-  )
-  );
+  ));
+  const persistor = persistStore(store);
+  return { persistor, store }
 }
 
 const configureStoreDev = initialState => {
@@ -30,8 +33,8 @@ const configureStoreDev = initialState => {
   ];
   const store = createStore(rootReducer, initialState, composeEnhancers(
     applyMiddleware(...middlewares)
-  )
-  );
+  ));
+  const persistor = persistStore(store);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
@@ -40,7 +43,7 @@ const configureStoreDev = initialState => {
     });
   }
 
-  return store;
+  return { persistor, store };
 }
 
 const configureStore = process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev;

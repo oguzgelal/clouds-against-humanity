@@ -1,0 +1,18 @@
+@import '../../../styles/index.scss';
+
+.page--wrapper {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  padding: $page--wrapper-padding;
+  padding-top: 0;
+  background-color: $page--wrapper-background;
+
+  .page--column {
+    width: 50vw;
+    height: 100vh;
+    padding: $page--column-padding;
+    background-color: $page--column-background;
+    border-radius: $page--column-border-radius;
+  }
+}

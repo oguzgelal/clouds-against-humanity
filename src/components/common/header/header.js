@@ -30,7 +30,7 @@ class Header extends React.Component {
     );
 
     return (
-      <nav className="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
+      <nav className="navbar is-dark" role="navigation" aria-label="dropdown navigation">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item">Clouds Against Humanity</a>
