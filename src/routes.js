@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import { bindActionCreators } from 'redux';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import PrivateRoute from './components/common/private-route/private-route';
+import PublicRoute from './components/common/public-route/public-route';
 import LandingContainer from './containers/landing-container/landing-container';
 import LobbyContainer from './containers/lobby-container/lobby-container';
 import GameContainer from './containers/game-container/game-container';
@@ -19,7 +20,8 @@ class Routes extends React.Component {
       <div>
         <Switch>
           <Route exact path="/" component={LandingContainer} />
-          <PrivateRoute exact path="/lobby" user={this.props.user} component={LobbyContainer} />
+          {/* <PrivateRoute exact path="/lobby" user={this.props.user} component={LobbyContainer} /> */}
+          <PublicRoute exact path="/lobby" component={LobbyContainer} />
           <PrivateRoute exact path="/game" user={this.props.user} component={GameContainer} />
           <Route component={NotFoundPage} />
         </Switch>

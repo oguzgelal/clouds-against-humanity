@@ -17,7 +17,7 @@ const PageWrapper = props => {
 };
 
 PageWrapper.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   justifyContent: PropTypes.string,
   alignItems: PropTypes.string,
   styles: PropTypes.object

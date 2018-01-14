@@ -1,8 +1,7 @@
 @import '../../../styles/index.scss';
 
 .page--column {
-  height: 100vh;
-  padding: $page--column-padding;
-  background-color: $page--column-background;
-  border-radius: $page--column-border-radius;
+  padding: $page-padding;
+  background-color: $light-bg;
+  border-radius: $border-radius;
 }

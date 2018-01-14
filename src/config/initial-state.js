@@ -1,5 +1,6 @@
 export default {
   user: {},
   loadings: {},
-  socket: {}
+  socket: {},
+  rooms: {},
 };

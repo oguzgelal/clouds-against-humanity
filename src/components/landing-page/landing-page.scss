@@ -11,6 +11,7 @@
 
 .landing--main-title {
   font-size: 60px;
+  color: rgba(255,255,255,.8) !important;
   @include mobile {
     padding: 20px;
     padding-bottom: 0;
@@ -19,6 +20,7 @@
 
 .landing--tagline {
   padding-top: 15px;
+  color: rgba(255,255,255,.8) !important;
   @include mobile {
     padding: 20px 30px;
     padding-top: 5vh;

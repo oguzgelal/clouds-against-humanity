@@ -3,16 +3,14 @@
 .page--wrapper {
   display: flex;
   width: 100vw;
-  min-height: 100vh;
-  padding: $page--wrapper-padding;
+  padding: 2em;
   padding-top: 0;
-  background-color: $page--wrapper-background;
+  background-color: rgb(54, 54, 54);
 
   .page--column {
     width: 50vw;
-    height: 100vh;
-    padding: $page--column-padding;
-    background-color: $page--column-background;
-    border-radius: $page--column-border-radius;
+    padding: $page-padding;
+    background-color: $light-bg;
+    border-radius: $border-radius;
   }
 }

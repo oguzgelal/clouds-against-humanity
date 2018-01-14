@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Cloud from '../clouds/cloud';
 
 import './header.scss';
 
@@ -34,26 +35,12 @@ class Header extends React.Component {
       <nav className="navbar is-dark" role="navigation" aria-label="dropdown navigation">
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item">Clouds Against Humanity</a>
-            <button className="button navbar-burger header--navbar-burger" onClick={this.toggleMenu}>
-              <span />
-              <span />
-              <span />
-            </button>
+            <a className="navbar-item header--logo">
+              <div className="header--logo-text">Clouds Against Humanity</div>
+              <div className="header--logo-text-after"></div>
+            </a>
           </div>
-          <div className={navbarClasses}>
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-item is-hidden-mobile">
-                <img className="header--avatar" src={`https://graph.facebook.com/${this.props.user.id}/picture?type=large`} />
-              </a>
-              <div className="navbar-dropdown is-boxed header--navbar">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Settings</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item">Logout</a>
-              </div>
-            </div>
-          </div>
+
         </div>
       </nav>
     );

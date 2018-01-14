@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import io from 'socket.io-client';
+import { randomString } from '../utils/misc';
 
 class SocketObservable {
 
@@ -30,6 +31,13 @@ class SocketObservable {
       type: eventName,
       data: eventObject
     }
+  }
+
+  send(type, data) {
+    const self = this;
+    const id = randomString();
+    self.socket.send({ type, data, id });
+    return id;
   }
 
   observable() {

@@ -1,3 +1,23 @@
-@import './bulma-settings';
-@import './theme';
+@import url('https://rsms.me/inter/inter-ui.css');
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
+@import '../../node_modules/bulma/sass/utilities/functions';
+
+$family-serif: 'Inter UI', sans-serif;
+$family-primary: $family-serif;
+
+$primary: #359ff4;
+$primary-invert: white;
+
+$body-background-color: rgb(54, 54, 54);
+$body-line-height: 1;
+
+$light-bg: whitesmoke;
+$border-radius: 0.5em;
+$page-padding: 2em;
+
+@import '../../node_modules/bulma/sass/utilities/derived-variables';
+
+$addColors: ("cah":($primary, $primary-invert));
+$colors: map-merge($colors, $addColors);
+
 @import '../../node_modules/bulma/bulma';

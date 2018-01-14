@@ -9,6 +9,7 @@ import env from '../../config/env';
 import SocketObservable from '../../observables/socket-observable';
 import ConnectionDialogue from '../../components/common/connection-dialogue/connection-dialogue';
 import * as socketActions from '../../actions/socket-actions';
+import * as roomsActions from '../../actions/room-actions';
 
 class LobbyContainer extends React.Component {
   constructor(props, context) {
@@ -20,9 +21,9 @@ class LobbyContainer extends React.Component {
   }
 
   // open connection to the lobby server
-  componentDidMount() {
+  componentWillMount() {
     this.ws = new SocketObservable(env.LOBBY_SOURCE, this.props.socketActions);
-    this.ws.observable().subscribe(x => { console.log(x); });
+    this.ws.observable().subscribe(x => { /* do nothing */ });
     window.ws = this.ws;
   }
 
@@ -39,7 +40,15 @@ class LobbyContainer extends React.Component {
       <div>
         <ConnectionDialogue socket={this.props.socket} ws={this.ws} />
         <Header user={this.props.user} />
-        <LobbyPage user={this.props.user} />
+        <LobbyPage
+          ws={this.ws}
+          user={this.props.user}
+          rooms={this.props.rooms}
+          fetchRooms={this.props.roomsActions.fetchRooms}
+          fetchRoomsLoading={this.props.loadings.rooms}
+          createRoom={this.props.roomsActions.createRoom}
+          createRoomLoading={this.props.loadings.createRoom}
+        />
       </div>
     );
   }
@@ -48,19 +57,24 @@ class LobbyContainer extends React.Component {
 LobbyContainer.propTypes = {
   user: PropTypes.object.isRequired,
   socket: PropTypes.object.isRequired,
-  socketActions: PropTypes.func.isRequired
+  socketActions: PropTypes.object.isRequired,
+  roomsActions: PropTypes.object.isRequired,
+  loadings: PropTypes.object,
 };
 
 function mapStateToProps(state, ownProps) {
   return {
     user: state.user,
-    socket: state.socket
+    socket: state.socket,
+    rooms: state.rooms,
+    loadings: state.loadings,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    socketActions: bindActionCreators(socketActions, dispatch)
+    socketActions: bindActionCreators(socketActions, dispatch),
+    roomsActions: bindActionCreators(roomsActions, dispatch),
   };
 }
 

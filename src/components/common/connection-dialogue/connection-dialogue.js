@@ -21,7 +21,7 @@ const ConnectionDialogue = props => {
 
   return (
     <div className={dialogueClasses}>
-      <div className="notification is-info connection-dialogue--box">
+      <div className="notification is-primary connection-dialogue--box">
         <div className="connection-dialogue--box-title">{status}</div>
         <div className="connection-dialogue--box-message">{props.socket.connectionMessage}</div>
       </div>

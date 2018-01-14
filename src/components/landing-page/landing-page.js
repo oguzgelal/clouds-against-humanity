@@ -21,7 +21,6 @@ class LandingPage extends React.Component {
       'is-size-2-mobile',
       'has-text-centered',
       'has-text-weight-bold',
-      'has-text-grey-darker'
     );
 
     let taglineClasses = classNames(
@@ -29,12 +28,11 @@ class LandingPage extends React.Component {
       'is-size-5',
       'is-size-6-mobile',
       'has-text-centered',
-      'has-text-grey-darker'
     );
 
     let loginButtonClasses = classNames(
       'button',
-      'is-info',
+      'is-primary',
       'is-medium',
       {
         'is-loading': !!this.props.fbLoginLoading

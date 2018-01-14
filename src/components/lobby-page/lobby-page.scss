@@ -1,0 +1,11 @@
+@import '../../styles/index';
+
+.lobby--info {
+  &-menu {
+    &-item {
+      &-txt {
+        margin-left: 0.6em;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import '../../../styles/index.scss';
+
+.game-item {
+  padding: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &--status {
+    width: 2em;
+    &-circle {
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      border: 2px solid rgb(54,54,54);
+      background-color: rgb(54,54,54);
+    }
+    &-circle-pending {
+      background-color: white;
+    }
+  }
+
+  &--details {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &-title {
+      font-size: 15pt;
+      color: black
+    }
+    &-desc {
+      font-size: 11pt;
+      margin-top: 0.5em;
+      color: rgba(0,0,0,.5);
+    }
+  }
+
+  &--icons {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &--icon {
+    margin-left: 1.2em;
+    svg {
+      width: 1.3em !important;
+    }
+  }
+
+  &--active-count{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      font-size: 9pt;
+      margin-top: 0.2em;
+    }
+  }
+}

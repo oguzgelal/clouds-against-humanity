@@ -5,6 +5,7 @@ import { persistReducer } from 'redux-persist';
 import userReducer from './user-reducer';
 import loadingsReducer from './loadings-reducer';
 import socketReducer from './socket-reducer';
+import roomsReducer from './rooms-reducer'
 import localForage from 'localforage';
 
 const userPersistConfig = {
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
   routing: routerReducer,
   user: persistReducer(userPersistConfig, userReducer),
   loadings: loadingsReducer,
-  socket: socketReducer
+  socket: socketReducer,
+  rooms: roomsReducer
 });
