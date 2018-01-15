@@ -4,7 +4,8 @@ import Page from '../common/page/page';
 import Column from '../common/page-column/column';
 import GameList from '../common/game-list/game-list';
 import Box from '../common/box/box';
-import Modal from '../common/modal/modal';
+import NewRoomModal from '../new-room-modal/new-room-modal';
+
 import * as Icon from 'react-feather';
 
 import './lobby-page.scss';
@@ -14,6 +15,8 @@ class LobbyPage extends React.Component {
     super(props, context);
 
     this.state = {
+
+      newRoomModalActive: false,
 
       games: [
         {
@@ -50,26 +53,11 @@ class LobbyPage extends React.Component {
           watchers_limit: 10
         }
       ],
-
-      newRoomInitial: {
-        modal: false,
-        roomName: ''
-      },
-
-      newRoom: {}
     };
 
     this.fetchRooms = this.fetchRooms.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.createRoomClicked = this.createRoomClicked.bind(this);
-    this.createRoomSubmitted = this.createRoomSubmitted.bind(this);
     this.createRoomCancelled = this.createRoomCancelled.bind(this);
-  }
-
-  handleChange(event) {
-    const s = Object.assign({}, this.state)
-    s.newRoom[event.target.name] = event.target.value;
-    this.setState(s);
   }
 
   fetchRooms() {
@@ -78,22 +66,13 @@ class LobbyPage extends React.Component {
 
   createRoomClicked() {
     const s = Object.assign({}, this.state);
-    s.newRoom = s.newRoomInitial;
-    s.newRoom.modal = true;
+    s.newRoomModalActive = true;
     this.setState(s);
-  }
-
-  createRoomSubmitted() {
-    const room = {};
-    room.name = this.state.newRoom.roomName || `${this.props.user.name}'s room`;
-    room.userid = this.props.user.id;
-    room.username = this.props.user.name;
-    this.props.createRoom(this.props.ws, room)
   }
 
   createRoomCancelled() {
     const s = Object.assign({}, this.state);
-    s.newRoom.modal = false;
+    s.newRoomModalActive = false;
     this.setState(s);
   }
 
@@ -121,29 +100,14 @@ class LobbyPage extends React.Component {
         </Column>
 
         {/* create room modal */}
-        <Modal
-          active={this.state.newRoom.modal}
-          loading={this.props.createRoomLoading}
-          title="Create room"
-          submit="Submit"
-          cancel="Cancel"
-          onSubmit={this.createRoomSubmitted}
-          onCancel={this.createRoomCancelled}
-        >
-          <div className="field">
-            <label className="label">Room name</label>
-            <div className="control">
-              <input
-                name="roomName"
-                value={this.state.newRoom.roomName || ''}
-                onChange={this.handleChange}
-                className="input"
-                type="text"
-                placeholder={`${this.props.user.name}'s room`}
-              />
-            </div>
-          </div>
-        </Modal>
+        <NewRoomModal
+          ws={this.props.ws}
+          user={this.props.user}
+          active={this.state.newRoomModalActive}
+          cancel={this.createRoomCancelled}
+          createRoom={this.props.createRoom}
+          createRoomLoading={this.props.createRoomLoading}
+        />
 
       </Page >
     );

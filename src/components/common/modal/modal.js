@@ -49,7 +49,7 @@ const modal = props => {
 };
 
 modal.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   loading: PropTypes.bool,
   title: PropTypes.string,
   active: PropTypes.bool,
