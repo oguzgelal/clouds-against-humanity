@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import io from 'socket.io-client';
+import wildcard from 'socketio-wildcard';
 import { randomString } from '../utils/misc';
 
 class SocketObservable {
@@ -9,6 +10,7 @@ class SocketObservable {
     try {
       self.socket = io(url, options);
       self.actions = actions;
+      wildcard(io.Manager)(self.socket);
     }
     catch (e) { throw e; }
   }
@@ -26,17 +28,20 @@ class SocketObservable {
   }
 
   // parse response before passing through observable
-  parse(eventName, eventObject) {
-    return {
-      type: eventName,
-      data: eventObject
-    }
+  parse(type, data) {
+    const id = data ? data.id : null;
+    return { type, data, id };
   }
 
   send(type, data) {
     const self = this;
+
+    // Server is provided with an event id on every request and
+    // it will attach the event id while responding, so UI can
+    // know when a response to a particular request has arrived
     const id = randomString();
-    self.socket.send({ type, data, id });
+
+    self.socket.emit(type, { data, id });
     return id;
   }
 
@@ -86,6 +91,15 @@ class SocketObservable {
       self.socket.on('reconnect_failed', event => {
         self.actions.socketReconnectionFailed();
         observer.next(self.parse('reconnect_failed'));
+      })
+
+      self.socket.on('*', res => {
+        try {
+          const [type, event] = res.data;
+          observer.next(self.parse(type, event));
+        } catch (e) {
+          /* do nothing */
+        }
       })
 
     })

@@ -61,9 +61,9 @@ class LobbyPage extends React.Component {
 
     this.fetchRooms = this.fetchRooms.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.createGameClicked = this.createGameClicked.bind(this);
     this.createRoomClicked = this.createRoomClicked.bind(this);
-    this.cancelCreateClicked = this.cancelCreateClicked.bind(this);
+    this.createRoomSubmitted = this.createRoomSubmitted.bind(this);
+    this.createRoomCancelled = this.createRoomCancelled.bind(this);
   }
 
   handleChange(event) {
@@ -76,18 +76,22 @@ class LobbyPage extends React.Component {
 
   }
 
-  createGameClicked() {
+  createRoomClicked() {
     const s = Object.assign({}, this.state);
     s.newRoom = s.newRoomInitial;
     s.newRoom.modal = true;
     this.setState(s);
   }
 
-  createRoomClicked() {
-    this.props.createRoom(this.props.ws, this.state.newRoom)
+  createRoomSubmitted() {
+    const room = {};
+    room.name = this.state.newRoom.roomName || `${this.props.user.name}'s room`;
+    room.userid = this.props.user.id;
+    room.username = this.props.user.name;
+    this.props.createRoom(this.props.ws, room)
   }
 
-  cancelCreateClicked() {
+  createRoomCancelled() {
     const s = Object.assign({}, this.state);
     s.newRoom.modal = false;
     this.setState(s);
@@ -109,7 +113,7 @@ class LobbyPage extends React.Component {
               <Icon.Settings />
               <span className="lobby--info-menu-item-txt">Settings</span>
             </Box>
-            <Box hover className="lobby--info-menu-item" onClick={this.createGameClicked}>
+            <Box hover className="lobby--info-menu-item" onClick={this.createRoomClicked}>
               <Icon.PlusCircle />
               <span className="lobby--info-menu-item-txt">Create room</span>
             </Box>
@@ -123,8 +127,8 @@ class LobbyPage extends React.Component {
           title="Create room"
           submit="Submit"
           cancel="Cancel"
-          onSubmit={this.createRoomClicked}
-          onCancel={this.cancelCreateClicked}
+          onSubmit={this.createRoomSubmitted}
+          onCancel={this.createRoomCancelled}
         >
           <div className="field">
             <label className="label">Room name</label>
@@ -135,7 +139,7 @@ class LobbyPage extends React.Component {
                 onChange={this.handleChange}
                 className="input"
                 type="text"
-                placeholder="e.g Alex's room"
+                placeholder={`${this.props.user.name}'s room`}
               />
             </div>
           </div>
