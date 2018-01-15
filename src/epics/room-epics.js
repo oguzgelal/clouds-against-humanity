@@ -1,6 +1,6 @@
-import { ofType } from 'redux-observable';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -15,7 +15,7 @@ import {
 
 export const createRoomEpic = (action$, store) => {
   return action$
-    .ofType(types.CREATE_ROOM_STARTED)
+    .filter(action => action.type === types.CREATE_ROOM_STARTED)
     .mergeMap(action => {
       const eventID = action.ws.send(types.CREATE_ROOM_STARTED, action.data);
       return action.ws.observable()
@@ -38,7 +38,7 @@ export const createRoomEpic = (action$, store) => {
 
 export const fetchRoomsEpic = (action$, store) => {
   return action$
-    .ofType(types.FETCH_ROOMS_STARTED)
+    .filter(action => action.type === types.FETCH_ROOMS_STARTED)
     .mergeMap(action => {
       const eventID = action.ws.send(types.FETCH_ROOMS_STARTED, action.data);
       return action.ws.observable()
