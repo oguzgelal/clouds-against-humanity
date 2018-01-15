@@ -1,7 +1,7 @@
 export default {
   FB_APP_ID: process.env.NODE_ENV === 'production' ? '151696645445865' : '2065138443715070',
-  LOBBY_SOURCE: process.env.NODE_ENV === 'production' ? '' : 'localhost:8080',
-  GAME_SOURCE: process.env.NODE_ENV === 'production' ? '' : 'localhost:3000',
+  LOBBY_SOURCE: process.env.NODE_ENV === 'production' ? 'https://clouds-against-humanity.herokuapp.com:8080' : 'localhost:8080',
+  GAME_SOURCE: process.env.NODE_ENV === 'production' ? 'https://clouds-against-humanity.herokuapp.com:3000' : 'localhost:3000',
 
   CDN_JS: [
     'https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js',
