@@ -18,7 +18,7 @@ const GameItem = props => {
   return (
     <Box className="game-item">
       <div className="game-item--status">
-        <div className={circleClassNames}></div>
+        <div className={circleClassNames} />
       </div>
       <div className="game-item--details">
         <div className="game-item--details-title">{props.game.title}</div>

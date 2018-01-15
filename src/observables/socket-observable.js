@@ -35,7 +35,6 @@ class SocketObservable {
 
   send(type, data) {
     const self = this;
-
     // Server is provided with an event id on every request and
     // it will attach the event id while responding, so UI can
     // know when a response to a particular request has arrived

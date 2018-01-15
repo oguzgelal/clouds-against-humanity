@@ -8,6 +8,7 @@ import history from '../../config/history';
 import env from '../../config/env';
 import SocketObservable from '../../observables/socket-observable';
 import ConnectionDialogue from '../../components/common/connection-dialogue/connection-dialogue';
+import * as types from '../../config/types';
 import * as socketActions from '../../actions/socket-actions';
 import * as roomsActions from '../../actions/room-actions';
 
@@ -23,8 +24,17 @@ class LobbyContainer extends React.Component {
   // open connection to the lobby server
   componentWillMount() {
     this.ws = new SocketObservable(env.LOBBY_SOURCE, this.props.socketActions);
-    this.ws.observable().subscribe(x => { /* do nothing */ });
-    window.ws = this.ws;
+
+    // subscribe to the lobby server to reactively respond to events
+    this.ws.observable().subscribe(x => {
+
+      // reactively update the room list
+      if (x.type === types.FETCH_ROOMS_COMPLETED) {
+
+        // dispatch the fetch success action
+        this.props.roomsActions.fetchRoomsCompleted(x.data);
+      }
+    });
   }
 
   // close connection to the lobby server
@@ -58,6 +68,7 @@ LobbyContainer.propTypes = {
   user: PropTypes.object.isRequired,
   socket: PropTypes.object.isRequired,
   socketActions: PropTypes.object.isRequired,
+  rooms: PropTypes.array,
   roomsActions: PropTypes.object.isRequired,
   loadings: PropTypes.object,
 };

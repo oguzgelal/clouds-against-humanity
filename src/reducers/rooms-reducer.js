@@ -5,7 +5,7 @@ const roomsReducer = (state = initialState.rooms, action) => {
   switch (action.type) {
 
     case types.FETCH_ROOMS_COMPLETED:
-      return Object.assign({}, action.data);
+      return action.data.slice(0);
 
     default:
       return state;

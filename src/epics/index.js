@@ -6,4 +6,5 @@ export const rootEpic = combineEpics(
   loginEpics.fbLoginStartEpic,
   loginEpics.fbLoginCompletedEpic,
   roomEpics.createRoomEpic,
+  roomEpics.fetchRoomsEpic,
 );

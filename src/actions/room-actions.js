@@ -7,32 +7,23 @@ export const createRoom = (ws, data) => {
 }
 
 export const createRoomCompleted = () => {
-  return {
-    type: types.CREATE_ROOM_COMPLETED
-  }
+  new Toast('Room successfully created', 'success')
+  return { type: types.CREATE_ROOM_COMPLETED }
 }
 
 export const createRoomFailed = () => {
-  return {
-    type: types.CREATE_ROOM_FAILED
-  }
+  return { type: types.CREATE_ROOM_FAILED }
 }
 
-export const fetchRooms = () => {
-  return {
-    type: types.FETCH_ROOMS_STARTED
-  }
+export const fetchRooms = ws => {
+  return { type: types.FETCH_ROOMS_STARTED, ws }
 }
 
-export const fetchRoomsCompleted = () => {
-  return {
-    type: types.FETCH_ROOMS_COMPLETED
-  }
+export const fetchRoomsCompleted = data => {
+  return { type: types.FETCH_ROOMS_COMPLETED, data }
 }
 
 export const fetchRoomsFailed = () => {
-  new Toast('Cannot fetch games', 'error')
-  return {
-    type: types.FETCH_ROOMS_FAILED
-  }
+  new Toast('Cannot fetch rooms', 'error')
+  return { type: types.FETCH_ROOMS_FAILED }
 }
