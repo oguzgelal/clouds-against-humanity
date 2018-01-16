@@ -34,7 +34,9 @@ class LobbyContainer extends React.Component {
         // dispatch the fetch success action
         this.props.roomsActions.fetchRoomsCompleted(x.data);
       }
+
     });
+
   }
 
   // close connection to the lobby server
